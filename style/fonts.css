@@ -1,0 +1,12 @@
+@font-face {
+    font-family: Indico;
+    src: url("../fonts/Indico.otf") format(".otf");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Arturito Slab;
+    src: url("../fonts/arturito.ttf") format(".ttf");
+    font-weight: normal;
+    font-style: normal;
+}

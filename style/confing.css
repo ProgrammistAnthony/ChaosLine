@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arturito Slab, sans-serif;
+}
+:root {
+  --sizeindex: calc(1vw + 1vh);
+  --index: calc(1vw + 1vh);
+  --transition: 1s cubic-bezier (0.05, 0.5, 0, 1);
+}
+body {
+  background-image: url("../img/1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  background-position: center center;
+}
+.container {
+  max-width: min(1440px, 100%, -30px);
+  margin-inline: auto;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}

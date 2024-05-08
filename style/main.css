@@ -14,24 +14,24 @@
   margin-inline: auto;
   height: 200px;
   border-radius: 10px;
-  background-color: rgba(7, 7, 7, 0.7); /* Полупрозрачный фон */
-  overflow: hidden; /* Убедитесь, что тени не выходят за границы блока */
+  background-color: rgba(7, 7, 7, 0.7); 
+  overflow: hidden; 
   animation: animateBorder 3s linear infinite;
   transform: translateY(50px);
 }
 
 @keyframes animateBorder {
   0% {
-    box-shadow: 0 0 0 2px hsl(330, 100%, 50%); /* Яркий розовый */
+    box-shadow: 0 0 0 2px hsl(330, 100%, 50%); 
   }
   33% {
-    box-shadow: 0 0 0 2px hsl(210, 100%, 50%); /* Яркий синий */
+    box-shadow: 0 0 0 2px hsl(210, 100%, 50%); 
   }
   66% {
-    box-shadow: 0 0 0 2px hsl(270, 100%, 50%); /* Фиолетовый */
+    box-shadow: 0 0 0 2px hsl(270, 100%, 50%); 
   }
   100% {
-    box-shadow: 0 0 0 2px hsl(330, 100%, 50%); /* Возвращаемся к розовому */
+    box-shadow: 0 0 0 2px hsl(330, 100%, 50%); 
   }
 }
 

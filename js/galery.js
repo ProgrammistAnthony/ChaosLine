@@ -1,35 +1,82 @@
-const sliderMain = new Swiper('.slider_main', {
-	debug: true,
-	freeMode: true,
-	centeredSlides: true,
-	mousewheel: true,
-	parallax: true,
-	breakpoints: {
-		0: {
-			slidesPerView: 2.5,
-			spaceBetween: 20
-		},
-		680: {
-			slidesPerView: 3.5,
-			spaceBetween: 60
-		}
+const state = {
+	modalOpen: false
+};
+const carouselList = document.querySelector('.galery__list');
+const galeryItems = document.querySelectorAll('.galery__item');
+const elems = Array.from(galeryItems);
+const modalOverlay = document.createElement('div');
+modalOverlay.classList.add('modal-overlay');
+document.body.appendChild(modalOverlay);
+
+const galery = document.querySelector('.galery'); // Получаем элемент с классом .galery
+
+modalOverlay.addEventListener('click', function () {
+	if (state.modalOpen) {
+	  closeModal();
 	}
-})
-const sliderBg = new Swiper('.slider_bg', {
-	centeredSlides: true,
-	parallax: true,
-	spaceBetween: 60,
-	slidesPerView: 3.5
-})
-sliderMain.controller.control = sliderBg
+});
 
-document.querySelectorAll('.slider__item').forEach(item => {
-	item.addEventListener('click', event => {
-		item.classList.toggle('opened')
-	})
-})
+carouselList.addEventListener('click', function (event) {
+	const newActive = event.target.closest('.galery__item');
 
-let desc = document.querySelector('.description')
-sliderMain.on('slideChange', e => {
-	sliderMain.activeIndex > 0 ? desc.classList.add('hidden') : desc.classList.remove('hidden')
-})
+	if (!newActive) {
+	  if (state.modalOpen) {
+		closeModal();
+	  }
+	  return;
+	};
+
+	if (newActive.classList.contains('galery__item_active')) {
+	  if (!state.modalOpen) {
+		openModal(newActive);
+	  } else {
+		closeModal();
+	  }
+	} else {
+	  update(newActive);
+	}
+});
+
+function closeModal() {
+	const current = elems.find(elem => elem.dataset.pos == 0);
+	if (current) {
+	  current.style.transform = '';
+	}
+	modalOverlay.style.display = 'none';
+	galery.style.height = ''; // Сброс высоты при закрытии
+	state.modalOpen = false;
+}
+
+function openModal(item) {
+	item.style.transform = 'scale(1.5)';
+	modalOverlay.style.display = 'block';
+	galery.style.height = '120vh'; // Установка высоты при открытии
+	state.modalOpen = true;
+}
+
+const update = function(newActive) {
+	const newActivePos = newActive.dataset.pos;
+
+	const current = elems.find(elem => elem.dataset.pos == 0);
+	const prev = elems.find(elem => elem.dataset.pos == -1);
+	const next = elems.find(elem => elem.dataset.pos == 1);
+	const first = elems.find(elem => elem.dataset.pos == -2);
+	const last = elems.find(elem => elem.dataset.pos == 2);
+
+	current.classList.remove('galery__item_active');
+
+	[current, prev, next, first, last].forEach(item => {
+	  var itemPos = item.dataset.pos;
+	  item.dataset.pos = getPos(itemPos, newActivePos);
+	});
+
+	newActive.classList.add('galery__item_active');
+};
+
+const getPos = function (current, active) {
+	const diff = current - active;
+	if (Math.abs(diff) > 2) {
+	  return -current;
+	}
+	return diff;
+};

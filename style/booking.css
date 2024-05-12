@@ -1,0 +1,113 @@
+.booking {
+  background-image: url("../img/bgi2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 300vh;
+  background-position: center center;
+  background-attachment: fixed;
+ @media (max-width: 705px) {
+    height: 330vh;
+ }
+}
+
+.booking__h2 {
+    text-align: center;
+}
+.booking__cards{
+  --item-width: 300px;
+  display: grid;
+  justify-items: center;
+  /*   grid-template-columns: repeat(auto-fill, minmax(var(--item-width), 1fr)); */
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+     }
+}
+.card{
+    padding: 1rem;
+    width: calc(100% / 2 - 20px);
+    color: var(--white);
+    display: grid;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: calc(var(--sizeindex)*1);
+}
+
+.card__title {
+    font-family: "Permanent Marker", sans-serif;
+}
+.card__complexity {
+    font-family: "Permanent Marker", sans-serif;
+    display: flex;
+    @media (max-width: 500px) {
+
+     }
+}
+
+.card__price {
+    font-size: calc(var(--sizeindex)*1.2);
+    font-weight: 600;
+}
+.card__description {
+  max-width: 200px;
+}
+.card__img {
+    width: 100%;
+    border-radius: 10px;
+}
+.booking__text{
+  font-size: calc(var(--sizeindex)*1.5);
+  color: var(--white);
+  text-align: center;
+  padding: 10px 0;
+}
+
+.heart{
+    width: 20px;
+    height: 20px;
+    background-color: #f20044;
+    position: relative;
+    transform: rotate(-45deg);
+    box-shadow: -10px 10px 90px #f20044;
+    animation: heart 0.6s linear infinite;
+    left: 60px;
+    top: 0px;
+  }
+  .heart::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #f20044;
+    border-radius: 50px;
+    top: -50%;
+    box-shadow: -10px -10px 90px #f20044;
+  }
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #f20044;
+    border-radius: 50px;
+    right: -50%;
+    box-shadow: 10px 10px 90px #f20044;
+  }
+  
+  @keyframes heart {
+    0% {
+      transform: rotate(-45deg) scale(1.07);
+    }
+    80% {
+      transform: rotate(-45deg) scale(1);
+    }
+    100% {
+      transform: rotate(-45deg) scale(1.07);
+    }
+  }

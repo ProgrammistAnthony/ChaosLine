@@ -8,7 +8,7 @@ const modalOverlay = document.createElement('div');
 modalOverlay.classList.add('modal-overlay');
 document.body.appendChild(modalOverlay);
 
-const galery = document.querySelector('.galery'); // Получаем элемент с классом .galery
+const galery = document.querySelector('.galery'); 
 
 modalOverlay.addEventListener('click', function () {
 	if (state.modalOpen) {
@@ -43,14 +43,14 @@ function closeModal() {
 	  current.style.transform = '';
 	}
 	modalOverlay.style.display = 'none';
-	galery.style.height = ''; // Сброс высоты при закрытии
+	galery.style.height = ''; 
 	state.modalOpen = false;
 }
 
 function openModal(item) {
 	item.style.transform = 'scale(1.5)';
 	modalOverlay.style.display = 'block';
-	galery.style.height = '120vh'; // Установка высоты при открытии
+	galery.style.height = '120vh'; 
 	state.modalOpen = true;
 }
 

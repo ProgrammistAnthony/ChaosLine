@@ -1,0 +1,54 @@
+.contacts {
+    background-image: url("../img/bgi3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 120vh;
+  background-position: center center;
+
+}
+
+.contacts__content {
+    color: var(--white);
+}
+.contacts__title {
+    padding: 30px 0;
+  font-size: calc(var(--sizeindex)*2.5);
+  border-bottom: 1px inset #fff;
+}
+.contacts__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 15px;
+}
+.info__text {
+    font-size: calc(var(--sizeindex)*1);
+    text-align: center;
+}
+.info__icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contacts__map {
+}
+
+.animated-svg {
+    animation: colorChange 2s infinite;
+  }
+
+  @keyframes colorChange {
+    0%, 100% {
+      fill: hsl(330, 100%, 50%);
+    }
+    33% {
+      fill: hsl(210, 100%, 50%);
+    }
+    66% {
+      fill: hsl(270, 100%, 50%);
+    }
+  }

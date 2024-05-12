@@ -5,7 +5,6 @@
   background-attachment: fixed;
   height: 300vh;
   background-position: center center;
-  background-attachment: fixed;
  @media (max-width: 705px) {
     height: 330vh;
  }
@@ -18,7 +17,6 @@
   --item-width: 300px;
   display: grid;
   justify-items: center;
-  /*   grid-template-columns: repeat(auto-fill, minmax(var(--item-width), 1fr)); */
   grid-template-columns: 1fr 1fr; 
   grid-template-rows: 1fr 1fr; 
 
@@ -60,6 +58,7 @@
 .card__img {
     width: 100%;
     border-radius: 10px;
+    cursor: pointer;
 }
 .booking__text{
   font-size: calc(var(--sizeindex)*1.5);

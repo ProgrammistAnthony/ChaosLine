@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: Arturito Slab, sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+  }
 :root {
   --sizeindex: calc(1vw + 1vh);
   --index: calc(1vw + 1vh);
